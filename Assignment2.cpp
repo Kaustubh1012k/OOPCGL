@@ -1,63 +1,78 @@
 #include<iostream>
 using namespace std;
-class complex
-{
-    float x;
-    float y;
 
-public:
-    complex()
-    {
-        x = 0;
-        y = 0;
+class Complex{
+    int x;
+    int y;
+    public:
+
+    Complex(){
+        x=0;
+        y=0;
     }
-    complex operator+(complex);
-    complex
-    operator*(complex);
-    friend istream &operator>>(istream &input, complex &t)
-    {
-        cout << "Enter the real part";
-        input >> t.x;
-        cout << "Enter the imaginary part";
-        input >> t.y;
-    }
-    friend ostream &operator<<(ostream &output, complex &t)
-    {
-        output << t.x << "+" << t.y << "i\n";
-    }
+
+    Complex operator+(Complex);
+
+    Complex operator*(Complex);
+
+    friend istream &operator>>(istream &input, Complex &t);
+    friend ostream &operator<<(ostream &output, Complex &o);
 };
-complex complex::operator+(complex c)
-{
-    complex temp;
-    temp.x = x + c.x;
-    temp.y = y + c.y;
-    return (temp);
+
+istream &operator>>(istream &input, Complex &t){
+    cout<<"Enter the Real Part: ";
+    input>>t.x;
+    cout<<"Enter the Imaginary Part: ";
+    input>>t.y;
 }
-complex complex::operator*(complex c)
-{
-    complex temp2;
-    temp2.x = (x * c.x) - (y * c.y);
-    temp2.y = (y * c.x) + (x * c.y);
-    return (temp2);
+
+ostream &operator<<(ostream &output, Complex &o){
+    output<<o.x<<" + "<<o.y<<"i"<<endl;
 }
-int main()
-{
-    complex c1, c2, c3, c4;
-    cout << "Default constructor value=\n";
-    cout << c1;
-    cout << "\nEnter the 1st number\n";
-    cin >> c1;
-    cout << "\nEnter the 2nd number\n";
-    cin >> c2;
-    c3 = c1 + c2;
-    c4 = c1 * c2;
-    cout << "\nThe first number is ";
-    cout << c1;
-    cout << "\nThe second number is ";
-    cout << c2;
-    cout << "\nThe addition is ";
-    cout << c3;
-    cout << "\nThe multiplication is ";
-    cout << c4;
+
+Complex Complex:: operator+(Complex obj){
+        Complex add;
+        add.x=x+obj.x;
+        add.y=y+obj.y;
+        return (add);
+    }
+
+
+Complex Complex :: operator*(Complex c){
+        Complex multi;
+        multi.x=(x*c.x)-(y*c.y);
+        multi.y=(y*c.x)+(x*c.y);
+        return (multi);
+    }
+
+int main(){
+    Complex c1, c2, c3, c4;
+    
+    cout<<"Default constructor is: "<<endl;
+    cout<<c1;
+    
+    cout<<"\nEnter the First Number"<<endl;
+    cin>>c1;
+
+    cout<<"\nEnter the Second Number"<<endl;
+    cin>>c2;
+
+    c3=c1+c2;
+    c4=c1*c2;
+
+    cout<<"\nThe first Number is ";
+    cout<<c1;
+
+    cout<<"\nThe Second Number is ";
+    cout<<c2;
+
+    
+    cout<<"\nAddition of Complex Numbers is: "<<endl;
+    cout<<c3;
+
+    
+    cout<<"\nMultiplication of Complex Numbers is: "<<endl;
+    cout<<c4;
+    
     return 0;
 }
