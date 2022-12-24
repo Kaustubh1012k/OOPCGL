@@ -16,17 +16,18 @@ Publication(){
 }
     void setData()
     {
-        cout << "Enter the Title  " << endl;
-        cin >> title;
-        getline(cin, title);
-        cout << "Enter the Price " << endl;
+        cout << "\nEnter the Title: ";
+        cin.ignore();
+        getline(cin,title);
+        cout << "\nEnter the Price: ";
         cin >> price;
     }
     void displayData()
     {
-        cout<<"\nInformation: ";
-        cout << "Title of Publication: " << title << endl;
-        cout << "Price: " <<price<< endl;
+    	cout<<endl;
+        cout<<"\n-----Information----"<<endl;
+        cout << "\nTitle of Publication: " << title << endl;
+        cout << "\nPrice: " <<price<< endl;
     }
 };
 
@@ -44,7 +45,7 @@ public:
     {
         Publication::setData();
         cout<<endl;
-        cout << "Enter Page Count: " << endl;
+        cout << "Enter Page Count: ";
         cin >> page_count;
     }
 
@@ -61,7 +62,7 @@ public:
             }
             else
             {
-                cout << "Page Count is " << page_count << endl;
+                cout << "\nPage Count is " << page_count << endl;
             }
         }
         catch (int x)
@@ -85,7 +86,7 @@ public:
     {
         Publication::setData();
         cout<<endl;
-        cout << "Enter Time in minutes: " << endl;
+        cout << "Enter Time in minutes: ";
         cin >> time;
         
     }
@@ -130,19 +131,19 @@ int main()
         switch (choice)
         {
         case 1:
-            cout << "Add Book " << endl;
+            cout << "\nAdd Book " << endl;
             b[bcount].setBook();
             bcount++;
             break;
 
         case 2:
-            cout << "Add Tape" << endl;
+            cout << "\nAdd Tape" << endl;
             t[tcount].setTape();
             tcount++;
             break;
 
         case 3:
-            cout << "Display Book " << endl;
+            cout << "\nDisplay Book " << endl;
             for (int i=0; i < bcount; i++)
             {
                 b[i].displayBook();
@@ -150,7 +151,7 @@ int main()
             break;
 
         case 4:
-            cout << "Display Tape" << endl;
+            cout << "\nDisplay Tape" << endl;
             for (int j=0; j <tcount; j++)
             {
                 t[j].displayTape();
@@ -158,7 +159,7 @@ int main()
             break;
 
         case 5:
-            cout << "Program Exited " << endl;
+            cout << "\nProgram Exited " << endl;
             exit(0);
             break;
 
